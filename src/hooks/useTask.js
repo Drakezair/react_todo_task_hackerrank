@@ -17,17 +17,13 @@ export default function useTasks() {
     if (!task || !priority)
       window.alert("Please enter both title and task priority");
     setTasks(
-      [...tasks, { task, priority }].sort((a, b) => b.priority - a.priority)
+      [...tasks, { task, priority }].sort((a, b) => a.priority - b.priority)
     );
     setTask("");
     setPriority("");
   };
 
   const handleDeleteTask = (index) => {
-    if (index === 1) {
-      setTasks([]);
-      return;
-    }
     const newTasks = [...tasks];
     newTasks.splice(index, 1);
     setTasks(newTasks);
